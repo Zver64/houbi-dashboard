@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/houbi-dashboard/static/css/main.8afb962f.chunk.css",
+    "main.js": "/houbi-dashboard/static/js/main.dc56e41f.chunk.js",
+    "main.js.map": "/houbi-dashboard/static/js/main.dc56e41f.chunk.js.map",
+    "runtime-main.js": "/houbi-dashboard/static/js/runtime-main.ec15eee0.js",
+    "runtime-main.js.map": "/houbi-dashboard/static/js/runtime-main.ec15eee0.js.map",
+    "static/js/2.1bddf17b.chunk.js": "/houbi-dashboard/static/js/2.1bddf17b.chunk.js",
+    "static/js/2.1bddf17b.chunk.js.map": "/houbi-dashboard/static/js/2.1bddf17b.chunk.js.map",
+    "index.html": "/houbi-dashboard/index.html",
+    "precache-manifest.0021e23e492a286de64a612b1dcaacc3.js": "/houbi-dashboard/precache-manifest.0021e23e492a286de64a612b1dcaacc3.js",
+    "service-worker.js": "/houbi-dashboard/service-worker.js",
+    "static/css/main.8afb962f.chunk.css.map": "/houbi-dashboard/static/css/main.8afb962f.chunk.css.map",
+    "static/js/2.1bddf17b.chunk.js.LICENSE.txt": "/houbi-dashboard/static/js/2.1bddf17b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ec15eee0.js",
+    "static/js/2.1bddf17b.chunk.js",
+    "static/css/main.8afb962f.chunk.css",
+    "static/js/main.dc56e41f.chunk.js"
+  ]
+}
