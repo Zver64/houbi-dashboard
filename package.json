@@ -2,6 +2,7 @@
   "name": "huobi-dashboard",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://zver64.github.io/houbi-dashboard",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -11,6 +12,7 @@
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "@types/styled-components": "^5.1.0",
+    "normalize.css": "^8.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
@@ -22,7 +24,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint ./src/**/*.{js,ts,jsx,tsx}"
+    "lint": "eslint ./src/**/*.{js,ts,jsx,tsx}",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -41,6 +45,7 @@
   },
   "devDependencies": {
     "eslint": "^6.8.0",
+    "gh-pages": "^2.2.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.1.7",
     "node-sass": "^4.14.0"
