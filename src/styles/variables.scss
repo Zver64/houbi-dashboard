@@ -1,0 +1,21 @@
+// basic colors
+:root {
+  /* RGB */
+  --color1: 80, 81, 79;
+  --color2: 235, 235, 211;
+  --color3: 242, 238, 90;
+  --color4: 13, 27, 42;
+  --color5: 236, 78, 32;
+
+  // color
+  --rgb-color1: rgba(var(--color1), 1);
+  --rgb-color2: rgba(var(--color2), 1);
+  --rgb-color3: rgba(var(--color3), 1);
+  --rgb-color4: rgba(var(--color4), 1);
+  --rgb-color5: rgba(var(--color5), 1);
+
+}
+
+.dark {
+
+}
