@@ -17,9 +17,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react"
+    "jsx": "react",
+    "noUnusedParameters": true,
+    "noUnusedLocals": true
   },
   "include": [
-    "src"
+    "src",
+    "index.d.ts"
   ]
 }

@@ -1,12 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from 'react-router-dom'
+import request from './api/binance/index'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 function App({ className }: { className?: string }) {
+  function makeRequest() {
+    request('/api/v3/exchangeInfo')
+      .then((val) => {
+        console.log(val)
+        return val.text()
+      })
+      .then(console.log)
+  }
   return (
     <Router>
       <div className={className}>
@@ -14,33 +18,36 @@ function App({ className }: { className?: string }) {
           <nav>
             <ul>
               <li>
-                <Link to="/link1">link1</Link>
+                <Link to='/link1'>link1</Link>
               </li>
               <li>
-                <Link to="/link2">link2</Link>
+                <Link to='/link2'>link2</Link>
               </li>
               <li>
-                <Link to="/link3">link3</Link>
+                <Link to='/link3'>link3</Link>
               </li>
               <li>
-                <Link to="/link4">link4</Link>
+                <Link to='/link4'>link4</Link>
               </li>
             </ul>
           </nav>
         </header>
         <main>
-          <h1>This is the header of the future</h1>
+          <h1>This is the header of future</h1>
+          <button className='btn' onClick={makeRequest}>
+            make request
+          </button>
           <Switch>
-            <Route path="/link1">
+            <Route path='/link1'>
               <div>This is link 1</div>
             </Route>
-            <Route path="/link2">
+            <Route path='/link2'>
               <div>This is link 2</div>
             </Route>
-            <Route path="/link3">
+            <Route path='/link3'>
               <div>This is link 3</div>
             </Route>
-            <Route path="/link4">
+            <Route path='/link4'>
               <div>This is link 4</div>
             </Route>
           </Switch>
