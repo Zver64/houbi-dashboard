@@ -2,12 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import request from './api/binance/index'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { API_CALLS } from './api/binance/endpoints'
 function App({ className }: { className?: string }) {
   function makeRequest() {
-    request('/api/v3/exchangeInfo')
-      .then((val) => {
-        console.log(val)
-        return val.text()
+    request(API_CALLS.PING)
+      .then((val:any) => {
+        return val.json()
       })
       .then(console.log)
   }
