@@ -17,16 +17,24 @@ export default function (
     throw new Error('path is not correct!')
   }
   if (endpoints[route].private) {
-    const totalParams = makeParams(data)
-    const signed = crypto.HmacSHA256(totalParams, binanceKey.secret).toString()
-    data.signature = signed
     if (!data.timestamp) {
       data.timestamp = Date.now()
     }
+    const totalParams = makeParams(data)
+    const signed = crypto.HmacSHA256(totalParams, binanceKey.secret).toString()
+    data.signature = signed
   }
+  if(process.env.NODE_ENV === 'development') {
+    baseSettings.api = 'http://localhost:3001'
+  }
+  const headers = new Headers({
+    'X-MBX-APIKEY': binanceKey.public,
+    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+  })
   return request(
     baseSettings.api + endpoints[route].path,
     type,
-    data
+    data,
+    headers
   )
 }

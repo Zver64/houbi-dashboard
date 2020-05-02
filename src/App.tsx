@@ -5,8 +5,11 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import { API_CALLS } from './api/binance/endpoints'
 function App({ className }: { className?: string }) {
   function makeRequest() {
-    request(API_CALLS.PING)
+    request(API_CALLS.ACCOUNT, 'GET')
       .then((val:any) => {
+        if(val.status !== 200) {
+          return val.statusText
+        }
         return val.json()
       })
       .then(console.log)
