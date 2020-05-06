@@ -1,7 +1,8 @@
 export const API_CALLS = {
   PING: 'ping',
   ACCOUNT: 'account',
-  ORDER: 'order'
+  ORDER: 'order',
+  CANDLES: 'candles'
 }
 export default {
   [API_CALLS.PING]: {
@@ -15,5 +16,9 @@ export default {
   [API_CALLS.ORDER]: {
     private: true,
     path: '/api/v3/order'
+  },
+  [API_CALLS.CANDLES]: {
+    private: false,
+    path: '/api/v3/klines'
   }
 }

@@ -29,7 +29,7 @@ export default function (
   }
   const headers = new Headers({
     'X-MBX-APIKEY': binanceKey.public,
-    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+    'Content-Type': type === 'POST' ? 'application/x-www-form-urlencoded;charset=UTF-8' : 'application/json'
   })
   return request(
     baseSettings.api + endpoints[route].path,
