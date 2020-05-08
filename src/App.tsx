@@ -1,19 +1,40 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import request from './api/binance/index'
+import MyChart from './components/MyChart'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import { API_CALLS } from './api/binance/endpoints'
 function App({ className }: { className?: string }) {
+  const [dataSet, setData] = useState([])
+  useEffect(() => {
+    if(dataSet.length === 0) {
+      makeRequest()
+    }
+  })
   function makeRequest() {
-    request(API_CALLS.ACCOUNT, 'GET')
-      .then((val:any) => {
-        if(val.status !== 200) {
+    return request(API_CALLS.CANDLES, 'GET', {
+      symbol: 'ETHBTC',
+      interval: '1h',
+      limit: 15
+    })
+      .then((val: any) => {
+        if (val.status !== 200) {
           return val.statusText
         }
         return val.json()
       })
-      .then(console.log)
+      .then((val) => {
+        const _data = val.map((arr: Array<string | number>) => {
+          const date = new Date(arr[0])
+          return {
+            time: `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
+            high: arr[2],
+          }
+        })
+        setData(_data)
+      })
   }
+  
   return (
     <Router>
       <div className={className}>
@@ -36,10 +57,10 @@ function App({ className }: { className?: string }) {
           </nav>
         </header>
         <main>
-          <h1>This is the header of future</h1>
-          <button className='btn' onClick={makeRequest}>
-            make request
-          </button>
+          <h1>The main chart</h1>
+          <div className='data'>
+            <MyChart dataSet={dataSet} />
+          </div>
           <Switch>
             <Route path='/link1'>
               <div>This is link 1</div>
